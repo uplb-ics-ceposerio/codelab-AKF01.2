@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import org.w3c.dom.Text
+import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,5 +22,17 @@ class MainActivity : AppCompatActivity() {
         val randomInt = (1..6).random()
         val resultText: TextView = findViewById(R.id.result_text)
         resultText.text = randomInt.toString()
+    }
+
+    private fun countUp(){
+        val resultText: TextView = findViewById(R.id.result_text).text.toString()
+        try {
+            val resultValue = resultText.toInt() + 1
+            resultText.text = resultValue.toString()
+        }catch (nfe : NumberFormatException){
+            resultText.text = "1"
+        }
+
+
     }
 }
