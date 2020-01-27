@@ -29,10 +29,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun countUp(){
-        val resultText: TextView = findViewById(R.id.result_text).text.toString()
+        val resultText: TextView = findViewById(R.id.result_text)
+        val resultValue = resultText.text.toString()
         try {
-            val resultValue = resultText.toInt() + 1
-            resultText.text = resultValue.toString()
+            val newResultValue = resultValue.toInt() + 1
+            resultText.text = newResultValue.toString()
         }catch (nfe : NumberFormatException){
             resultText.text = "1"
         }
