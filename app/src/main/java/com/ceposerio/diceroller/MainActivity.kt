@@ -31,9 +31,12 @@ class MainActivity : AppCompatActivity() {
     private fun countUp(){
         val resultText: TextView = findViewById(R.id.result_text)
         val resultValue = resultText.text.toString()
+
         try {
             val newResultValue = resultValue.toInt() + 1
-            resultText.text = newResultValue.toString()
+            if (newResultValue <= 6) {
+                resultText.text = newResultValue.toString()
+            }
         }catch (nfe : NumberFormatException){
             resultText.text = "1"
         }
